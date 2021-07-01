@@ -11,7 +11,7 @@ public class Mancala{
     valid = false; 
     while (!valid){ //what is the benefit of adding this? couldn't we just say while (true)? also, is this to check if it's a valid move? or just to record that it's valid? should we make checking if a move is valid a separate method, isValidMove? 
     Scanner in = new Scanner(System.in);
-     {
+     { //this is missing a statement
       //ask the user to pick stones from a pit
       System.out.println("From which pit would like to pick stones? Please pick a number from 1 to 6.");
       playerPitChoice = in.nextInt();
@@ -24,11 +24,11 @@ public class Mancala{
       }//end if statement to catch invalid input 
       if (playerBoard[playerPitChoice] == 0){
       System.out.println("the pit is empty. Pick a number from 1 to 6!");
-      valid= false
+      valid= false;
       }//end if statement to catch invalid input 
     } //end while
     return playerPitChoice; 
-  }//end player input
+  }//end while valid
 
   public static int aiInput(int aiBoard[], int aiPitChoice){ 
      aiPitChoice  = rand.nextInt(5) +1;
@@ -61,21 +61,19 @@ public class Mancala{
     int aiPitChoice; 
     System.out.println("Welcome to Mancala! Here is the board:");
     board();
-    playerInput (playerBoard[], playerPitChoice)
+    playerInput (playerBoard[], playerPitChoice);
 
 
 
   }//end main
 
   
-public static void board{
-  // will this print or will i have to make this a method? i am using things from the main :/
-  //you already made this a method, right? -Ian
-  System.out.println("ai position: 1 2 3 4 5 6");
-  System.out.println("ai:"+ Arrays.toString(aiBoard));
-  System.out.println("        ai:"+ Arrays.toString(aiBoard));
-  System.out.println("             "Arrays.toString(playerBoard)+ "player");
-  System.out.println("              1 2 3 4 5 6: player position");
+public static void board(int [] ai, int [] player){
+  System.out.println(" ai position: 1, 2, 3, 4, 5, 6");
+  System.out.println("       ai:"+ Arrays.toString(ai));
+  System.out.println("             "+ Arrays.toString(player)+ " player");
+  System.out.println("              1, 2, 3, 4, 5, 6: player position");
+  System.out.println("Mancala: ai="+ai[0]+", player="+player[6]);
 // display(example) 
 // ai poition:1 2 3 4 5 6
 //         ai:4 4 4 4 4 4
@@ -84,7 +82,8 @@ public static void board{
 //  Mancala: ai= 0 player= 0
 // last stone droped: ai position: 2
 
-}//end board
+//to print the board without the first and last position (line 73 and 74), do I need to concatenate? can i put a range?
+}//end board (WORKS-Daiana)
 
 
 
