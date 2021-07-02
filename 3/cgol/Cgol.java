@@ -1,4 +1,4 @@
-//Group members:  Alex Moore, Diana, Eduardo
+//Group members:  Alex Moore, Daiana, Eduardo
 //Comments:  Making fine progress - everything pretty intuitive so far.  We took some time to understand the Game of Life before diving into coding.
 /*List of variables
 r/c are row and col
@@ -24,44 +24,27 @@ import java.util.*;
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
 */
 
-public class CGOL
-{
-
+public class CGOL{
   //initialize empty board (all cells dead)
   public static char[][] createNewBoard(int rows, int cols) {
-
-   
-  char [][] newBoard=new char[rows][cols];
-
-
-return newBoard;
+    char [][] newBoard=new char[rows][cols];
+    return newBoard;
   }
 
-
-  //print the board to the terminal
+ //print the board to the terminal
   public static void printBoard(char[][] board) {
-  
-
-  for (int i=0;i<board.length;i++)
-  {
-    for (int j=0;j<board[0].length;j++)
-    {
+    for (int i=0;i<board.length;i++){
+    for (int j=0;j<board[0].length;j++){
       System.out.print("["+board[i][j]+"]");
-
     } //for int j
-System.out.println();
-  };//for int i
+  System.out.println();
+   };//for int i
   }//printBoard
-
 
   //set cell (r,c) to val
   public static void setCell(char[][] board, int r, int c, char val){
-
-board[r][c]=val;
-
+    board[r][c]=val;
   }
-
-
   //return number of living neigbours of board[r][c]
   //row and col
 
@@ -69,62 +52,49 @@ board[r][c]=val;
 
   //Possible issue:  array out of bounds if by the edge - may need to modify later
   public static int countNeighbours(char[][] board, int r, int c) {
+    int totalNeighbors=0;
+    if(r>0 && c>0){
+      if (board[r-1][c-1]=='X')
+        totalNeighbors++;
+    };
 
-int totalNeighbors=0;
+    if(r>0){
+      if (board[r-1][c]=='X')
+        totalNeighbors++;
+    };
 
-if(r>0 && c>0)
-{
-if (board[r-1][c-1]=='X')
-totalNeighbors++;
-};
+    if (r>0 && c<24){
+      if (board[r-1][c+1]=='X')
+        totalNeighbors++;
+    };
 
+    if (c>0){
+      if (board[r][c-1]=='X')
+        totalNeighbors++;
+    };
 
-if(r>0)
-{
-if (board[r-1][c]=='X')
-totalNeighbors++;
-};
+    if (c<24){
+      if (board[r][c+1]=='X')
+        totalNeighbors++;
+    };
 
+    if (c>0 && r<24){
+      if (board[r+1][c-1]=='X')
+        totalNeighbors++;
+    };
 
-if (r>0 && c<24)
-{
-if (board[r-1][c+1]=='X')
-totalNeighbors++;
-};
+    if (r<24){
+      if (board[r+1][c]=='X')
+        totalNeighbors++;
+    };
 
-if (c>0)
-{
-if (board[r][c-1]=='X')
-totalNeighbors++;
-};
+    if (r<24 && c<24){
+      if (board[r+1][c+1]=='X')
+        totalNeighbors++;
+    };
 
-if (c<24)
-{
-if (board[r][c+1]=='X')
-totalNeighbors++;
-};
-
-if (c>0 && r<24)
-{
-if (board[r+1][c-1]=='X')
-totalNeighbors++;
-};
-
-if (r<24)
-{
-if (board[r+1][c]=='X')
-totalNeighbors++;
-};
-
-if (r<24 && c<24)
-{
-if (board[r+1][c+1]=='X')
-totalNeighbors++;
-};
-
-return totalNeighbors;
+  return totalNeighbors;
   }
-
 
   /**
      precond: given a board and a cell
@@ -132,52 +102,39 @@ return totalNeighbors;
      (alive 'X', dead ' ')
   */
   public static char getNextGenCell(char[][] board,int r, int c) {
-    if (countNeighbours(board, r, c)==2
- || countNeighbours(board, r, c)==3)
-return 'X';
-//else return '\0';
-else return '\0';
+    if (board[r][c]=='X' && (countNeighbours(board, r, c)==2 || countNeighbours(board, r, c)==3))
+      return 'X';
 
+    else if ((board[r][c]==' '|| board[r][c]=='\0')&& countNeighbours(board, r, c)==3)
+      return 'X';
+
+  else return '\0';
+  }
 //board [5][10] has an X but should be blank - why?
 
 /*
 System.out.println("Cell " + r+ "," + c+" has this # of neighbors: "+countNeighbours(board,r,c));
 return '\0';
 */
-//
-
-  }
-
-
   //generate new board representing next generation
   public static char[][] generateNextBoard(char[][] board) {
-    
-char[][] nextGenBoard=new char[25][25];
-
-for (int i=0;i<25;i++)
-for (int j=0;j<25;j++)
-{
-//possible that we need to make a new board?
-
-nextGenBoard[i][j]=
-getNextGenCell(board,i,j);
-
-}
-
-return nextGenBoard;
+    char[][] nextGenBoard=new char[25][25];
+  for (int i=0;i<25;i++)
+    for (int j=0;j<25;j++){
+      nextGenBoard[i][j]=getNextGenCell(board,i,j);
+    }
+  return nextGenBoard;
   }
 
-
   public static void main( String[] args ){
-
+    char[][] board;
+    board = createNewBoard(25,25);
     /*
     int sampleNumber=5;
     int sampleLetter=(char) sampleNumber;
     System.out.println("Sample number converted to a character is "+ sampleLetter);
     */
-    char[][] board;
-    board = createNewBoard(25,25);
-
+    
 //temporary - for testing purposes - then delete
 /*
     printBoard(board);
@@ -188,9 +145,11 @@ System.out.println(countNeighbours(board,5,5));
     setCell(board, 10, 5, 'X');
     setCell(board, 10, 6, 'X');
 
+    /*
     setCell(board, 15, 12, 'X');
     setCell(board, 16, 12, 'X');
     setCell(board, 17, 12, 'X');
+    */
     // TASK:
     // Once your initial version is running,
     // try out different starting configurations of living cells...
