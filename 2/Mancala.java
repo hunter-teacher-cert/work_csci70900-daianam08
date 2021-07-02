@@ -1,3 +1,5 @@
+//worked with Ian and Mr H
+
 import java.io.*;
 import java.util.*;
 import java.util.Scanner; //not necessary
@@ -18,11 +20,11 @@ public class Mancala{
       valid  = true; 
       
       //check to see if the input is invalid
-      if (playerPitChoice != 1 && != 2 && != 3 && != 4 && != 5 && != 6){
+      if (playerPitChoice < 1 || playerPitChoice > 6){
       System.out.println("That's not a valid pit. Pick a number from 1 to 6!");
       valid = false;
       }//end if statement to catch invalid input 
-      if (playerBoard[playerPitChoice] == 0){
+      else if (playerBoard[playerPitChoice] == 0){
       System.out.println("the pit is empty. Pick a number from 1 to 6!");
       valid= false;
       }//end if statement to catch invalid input 

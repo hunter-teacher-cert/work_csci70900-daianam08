@@ -2,15 +2,12 @@ import java.io.*;
 import java.util.*;
 
 // https://github.com/hunter-teacher-cert/work_csci70900-mrbombmusic/blob/master/1/Nim.java completed code
-//game seems to work but cannot figure out how to subtract ai and player from bag :(
+//game seems to work but cannot figure out how to subtract ai and player from bag :( this version gives current stones =12 every time
 
 public class Nim2{
 public static void main(String[] args){
   int bag=12;
   int turn = 0;
-  // int player=0;
-  // int ai=0;
-  // subtract above from bag? set to 0 each round?
   boolean gameOn=false;
   Scanner game= new Scanner(System.in);
   if (gameOn==false){
@@ -53,7 +50,7 @@ public static int playerRound(int pbag){
   if (pbag>3){
   System.out.println("Pull 1, 2, or 3 stones: ");
   int youPull = in.nextInt();
-  if (youPull<0 || youPull>3){
+  if (youPull<=0 || youPull>3){
   System.out.println("Hey no cheating! Only pull 1, 2, or 3 stones: ");
   youPull = in.nextInt();
   } else {
@@ -63,7 +60,7 @@ public static int playerRound(int pbag){
   } else if(pbag>2){
     System.out.println("Pull 1 or 2 stones: ");
     int youPull = in.nextInt();
-    if (youPull<0 || youPull>2){
+    if (youPull<=0 || youPull>2){
     System.out.println("Hey no cheating! Only pull 1 or 2 stones: ");
     youPull = in.nextInt();
     } else {
@@ -73,7 +70,7 @@ public static int playerRound(int pbag){
   } else if(pbag==1){
     System.out.println("Pull the last stone! ");
     int youPull = in.nextInt();
-    if (youPull<0 || youPull>2){
+    if (youPull<=0 || youPull>2){
     System.out.println("Hey no cheating! Pull only 1:");
     youPull = in.nextInt();
     } else {
