@@ -6,71 +6,6 @@ import java.util.*;
 
 
 public class Mancala{
-  public static void main(String[]args){
-    int aiBoard[]={0,4,4,4,4,4,4};
-    int playerBoard[]={4,4,4,4,4,4,0};
-
-    boolean gameOn=false;
-    if (gameOn==false){
-      aiBoard[0]=0;
-      playerBoard[6]=0;
-      for (int i=1; i<aiBoard.length; i++){
-        aiBoard[i]=4;
-      }
-      for (int i=0; i<playerBoard.length-1; i++){
-        playerBoard[i]=4;
-      }
-      System.out.println("Welcome to Mancala! Choose a position above your side to start the game!");
-      board(aiBoard,playerBoard);
-
-      Scanner num = new Scanner(System.in);
-      int play=num.nextInt();
-      if (play>1 || play<6){
-      playerFirstPlay(gameOn,playerBoard, play);
-      } else {
-        System.out.println("Sorry, choose a number between 1 and 6");
-        play=num.nextInt();
-      }
-    }//end gameOnFalse
-
-    if (gameOn==true){
-      int turn=0;
-      board(aiBoard,playerBoard);
-      if (turn % 2==0){
-        System.out.print("AI turn");
-        //playerTurn();
-      } else {
-        System.out.print("Player turn");
-        //aiTurn();
-      }
-
-
-    }//end gameOnTrue
-    
-
-  }//end main
-
-  public static void playerFirstPlay(boolean on, int playerMove[], int number/*playerboard imported*/){
-    on=true;
-    int hand=0;
-    for (int i=0; i<playerMove.length-1; i++){
-      if (number==i){
-        hand=playerMove[i]-7;
-        playerMove[i]=0;
-      }
-    }
-    for (int x=1; x<hand; x++){
-      playerMove[x]=playerMove[x]-1;
-    }
-    if (hand==0){
-
-    }
-
-
-
-  }//end first move
-
-
   public static void board(int [] ai, int [] player){
   System.out.println("ai position" + "\n"+ "1 2 3 4 5 6");
    for (int i=1; i<ai.length; i++){
@@ -92,6 +27,114 @@ public class Mancala{
 //6 5 4 3 2 1
 //player position
 //Mancala: ai= 0 player= 0
-  }//end board
+  }//end board FINALIZED
+
+  public static void main(String[]args){
+    int aiBoard[]={0,4,4,4,4,4,4};
+    int playerBoard[]={4,4,4,4,4,4,0};
+
+    boolean gameOn=false;
+    if (gameOn==false){
+      aiBoard[0]=0;
+      playerBoard[6]=0;
+      for (int i=1; i<aiBoard.length; i++){
+        aiBoard[i]=4;
+      }
+      for (int i=0; i<playerBoard.length-1; i++){
+        playerBoard[i]=4;
+      }
+      System.out.println("Welcome to Mancala! Enter 0 to start!");
+      Scanner in = new Scanner(System.in);
+      int start=in.nextInt();
+      if (start !=0){
+        System.out.println("Only type 0 to begin!");
+        start=in.nextInt();
+        if (start==0){
+          gameOn=true;
+        }
+      } else{
+        gameOn=true;
+      }
+    }//end gameOnFalse
+
+    if (gameOn==true){
+      int turn=0;
+      board(aiBoard,playerBoard);
+      
+      if (turn % 2==0){
+        System.out.println("Player turn");
+        Scanner num = new Scanner(System.in);
+        int play=num.nextInt();
+         if (play<1 || play>6){
+           System.out.println("Sorry, choose a number between 1 and 6");
+            play=num.nextInt();
+            playerPlay(playerBoard,aiBoard, play);
+            board(aiBoard,playerBoard);
+            turn=turn+1;
+          //playerTurn();
+      } else {
+         System.out.println("AI turn");
+         aiPlay(playerBoard, aiBoard, play);
+          board(aiBoard,playerBoard);
+          turn=turn+1;
+        //aiTurn();
+      }
+      }
+
+    }//end gameOnTrue
+    
+
+  }//end main
+
+        //HERE IS WHERE I GET STUCK AND NEED TO FIX CODE
+  public static void playerPlay(int playerMove[], int aiMove[], int number/*playerboard imported*/){
+    int hand=0;
+    hand=playerHand(number, playerMove); //returns hand
+   for (int i=hand; i<hand; i++){
+     for(int j=6; j<playerMove.length-1; j--){
+       playerMove[j]=playerMove[j]+1;
+       hand=hand-1;
+     } if (hand>0){
+       for (i=hand; i<hand; i++){
+         aiMove[i]=aiMove[i]+1;
+         hand=hand-1;
+       }
+     }
+   }
+    // takes hand and subtracts one from each index. circle through
+   
+  }//end first play
+
+  public static int aiPlay(int[] playerBoard, int [] aiBoard, int play){
+return 0;
+  }
+
+  public static int playerHand(int number, int playerMove[]){
+    //takes number of position and translates to board. sets that position to zero
+    int hand=0;
+    if (number==1){
+      hand=playerMove[6];
+      playerMove[6]=0;
+    } else if (number==2){
+      hand=playerMove[5];
+      playerMove[5]=0;
+    } else if (number==3){
+      hand=playerMove[4];
+      playerMove[4]=0;
+    } else if (number==4){
+      hand=playerMove[3];
+      playerMove[3]=0;
+    } else if (number==5){
+      hand=playerMove[2];
+      playerMove[2]=0;
+    } else if (number==6){
+      hand=playerMove[1];
+      playerMove[1]=0;
+    }
+    return hand;
+}//end playerPosition
+
+
+  
 
 }//end class
