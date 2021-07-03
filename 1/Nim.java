@@ -14,7 +14,7 @@ public static void main(String[] args){
   bag=12;
   turn=0;
   }
-int begin= 0;
+int begin= game.nextInt();
   if (begin==0){
     gameOn=true;
   }
@@ -52,7 +52,7 @@ public static int playerRound(int pbag){
   Scanner in = new Scanner(System.in);
   if (pbag>3){
   System.out.println("Pull 1, 2, or 3 stones: ");
-  int youPull = 2;
+  int youPull = in.nextInt();
   if (youPull<=0 || youPull>3){
   System.out.println("Hey no cheating! Only pull 1, 2, or 3 stones: ");
   youPull = in.nextInt();
@@ -62,7 +62,7 @@ public static int playerRound(int pbag){
   } return pbag;
   } else if(pbag>2){
     System.out.println("Pull 1 or 2 stones: ");
-    int youPull = 2;
+    int youPull = in.nextInt();
     if (youPull<=0 || youPull>2){
     System.out.println("Hey no cheating! Only pull 1 or 2 stones: ");
     youPull = in.nextInt();
@@ -72,7 +72,7 @@ public static int playerRound(int pbag){
   } return pbag;
   } else if(pbag==1){
     System.out.println("Pull the last stone! ");
-    int youPull = 1;
+    int youPull = in.nextInt();
     if (youPull<=0 || youPull>2){
     System.out.println("Hey! Pull only 1:");
     youPull = in.nextInt();
