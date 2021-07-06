@@ -43,11 +43,16 @@ public static int indexOfMax(int [] abc){
   } 
   return maxI;
 };
-// cant use enhanced for loop 
+// cant use enhanced for loop because of the complex parameters??
 
+//q5 INCOMPLETE, dont get it
+public static int[] sieve(int n){
+boolean isPrime=true;
+for(int check: n){
+  if
+}
 
-// public static int[] sieve(int n){
-
-// }
+return isPrime;
+}
 
 } //end of class 

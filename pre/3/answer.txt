@@ -27,9 +27,11 @@ No, I wug.
 You wugga wug.
 I wug.
 
-2.  I don't understand the question
+2.  
     [main: No, I ]
-    [zoop: wug.]
+    go to zoop=>go to baffle
+    [baffle: wug.]
+    go to ping
     [ping: .]
 
 3. Turns into a loop!

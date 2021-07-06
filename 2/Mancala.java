@@ -1,6 +1,10 @@
 //MANCALA 2.0
 //redid on my own
 
+//NEXT STEPS
+//work on main if (player)
+//reconider doing one array
+
 import java.io.*;
 import java.util.*;
 
@@ -32,6 +36,11 @@ public class Mancala{
   public static void main(String[]args){
     int aiBoard[]={0,4,4,4,4,4,4};
     int playerBoard[]={4,4,4,4,4,4,0};
+//need to add pits ai||player equal 0 && gameOn true
+//also need to add game ends at ai||player equal 0 && ai>player||ai<player mancala score
+    int scores=0;
+
+    if (player)
 
     boolean gameOn=false;
     if (gameOn==false){
@@ -52,7 +61,7 @@ public class Mancala{
         if (start==0){
           gameOn=true;
         }
-      } else{
+      } else {
         gameOn=true;
       }
     }//end gameOnFalse
@@ -60,25 +69,26 @@ public class Mancala{
     if (gameOn==true){
       int turn=0;
       board(aiBoard,playerBoard);
-      
+      int play=0;
       if (turn % 2==0){
         System.out.println("Player turn");
         Scanner num = new Scanner(System.in);
-        int play=num.nextInt();
+        play=num.nextInt();
          if (play<1 || play>6){
            System.out.println("Sorry, choose a number between 1 and 6");
             play=num.nextInt();
-            playerPlay(playerBoard,aiBoard, play);
-            board(aiBoard,playerBoard);
-            turn=turn+1;
           //playerTurn();
       } else {
+          playerPlay(playerBoard,aiBoard, play);
+          board(aiBoard,playerBoard);
+          turn=turn+1;
+      }
+      } else {
          System.out.println("AI turn");
-         aiPlay(playerBoard, aiBoard, play);
+         aiPlay(playerBoard, aiBoard); //deleted play from here
           board(aiBoard,playerBoard);
           turn=turn+1;
         //aiTurn();
-      }
       }
 
     }//end gameOnTrue
@@ -105,7 +115,7 @@ public class Mancala{
    
   }//end first play
 
-  public static int aiPlay(int[] playerBoard, int [] aiBoard, int play){
+  public static int aiPlay(int[] playerBoard, int [] aiBoard){
 return 0;
   }
 

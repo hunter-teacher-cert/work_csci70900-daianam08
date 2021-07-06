@@ -6,12 +6,14 @@ public class Methods{
     System.out.println(isDivisible());
     System.out.println(isTriangle());
     Scanner ackCheck= new Scanner(System.in);
-    System.out.print("Enter first integer: ");
+
+    System.out.print("Ack function! Enter first integer: ");
     int m= ackCheck.nextInt();
     System.out.print("Enter second integer: ");
     int n= ackCheck.nextInt();
     System.out.println(ack(m,n));
-  }
+  }//end main
+
   public static boolean isDivisible () {
     Scanner in= new Scanner(System.in);
     System.out.print("Is this divisible? Enter one number: ");
@@ -23,7 +25,7 @@ public class Methods{
     } else {
       return false;
     }
-  }
+  }//end divisible
 
   public static boolean isTriangle(){
     Scanner tri= new Scanner(System.in);
@@ -42,19 +44,17 @@ public class Methods{
     } else{
       return true;
     }
-  }
+  }//end triangle
 
-// for the problem below, reread recurse section!
   public static int ack(int m, int n){
   if (m==0){
     return n+1;
-  }else if(m>0 && n==0){
+  } else if(m>0 && n==0){
     return ack(m-1,1);
-  } else if(m>0 && n>0){
+  } else if (m>0 && n>0){
     return ack(m-1, ack(m, n-1));
   } else{
     return 0;
   }
-  }
-}
-
+}//end ack
+}//end class

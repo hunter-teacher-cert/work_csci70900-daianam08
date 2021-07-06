@@ -1,3 +1,5 @@
+//mancala completed by group
+
 import java.io.*;
 import java.util.*;
 import java.util.Scanner; //not necessary

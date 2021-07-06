@@ -1,7 +1,9 @@
+//worked with chris o and marina at first then also alex m and mamudu
+
 import java.io.*;
 import java.util.*;
 
-// YAY I COMPLETED THE CODE :D
+// YAY I COMPLETED THE CODE ON MY OWN :D
 
 public class Nim{
 public static void main(String[] args){
