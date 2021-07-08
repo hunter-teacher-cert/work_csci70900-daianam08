@@ -40,6 +40,7 @@ public class SuperArray
 
   // ~~~~~~~~~~~~~~~ METHODS ~~~~~~~~~~~~~~~
   public void add( int i, int value )
+  //position,value
   {
     // test to see if we need to grow, then grow
     if(this.numberElements < i || this.numberElements == this.data.length){
@@ -51,12 +52,21 @@ public class SuperArray
 
     // add item
 	//this.data[this.numberElements] = value;
-    this.data[i] = value;
+    for(int j = this.data.length - 1; j > i; j--){
+		this.data[j] = this.data[j-1];
+	}
 
+	this.data[i] = value;
+	
     // increment numberElements
-	 this.numberElements++;
+	this.numberElements++;
 
   }//end add()
+
+  public void add(int val){
+    this.add(this.numberElements,val);
+    
+  }//add one value
 
 	public void remove(int i){
 		for(int j = i; j < this.data.length - 1; j++) {
@@ -75,12 +85,8 @@ public class SuperArray
 	}
 	
 	//setters - allows modifying instance vars outside of class
-	public void setData(int[] newData) { 
-		this.data = newData;
-	}
-	
-	public void setNumberElements(int newNumberElements){
-		this.numberElements = newNumberElements;
+	public void set(int index, int value) { 
+		this.data[index] = value;
 	}
 	
 	//printing items of int list data
@@ -141,7 +147,7 @@ public class SuperArray
   private void grow()
   {
     // create a new array with extra space
-    int[] newData = new int[this.data.length + 20];
+    int[] newData = new int[this.data.length + 10];
 
     // Q: How did you decide how much to increase capacity by?
     // A: Increasing by arbitrary number 10
