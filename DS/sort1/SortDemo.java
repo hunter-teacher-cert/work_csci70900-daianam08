@@ -76,17 +76,24 @@ public class SortDemo{
       }
     } return smallIndex;
   }
-  //call SmallestIndex;  swap 5 and 3 but need to store 3 in integer temp
+  
+  //sort() method calls SmallestIndex
+  //For example, swap 5 and 3 but need to store 3 in integer temp
   public void sort(){
+
     int i;
-    int temp;
-    for (i = 0;i < data.size()-1; i++){
-        // find the smallest index from i to end
-      int j = findSmallestIndex(i);
+    int temp; //Create a temp variable to store the value being swapped
+
+    //Iterate through the data array to sort all values by swapping
+    for (i = 0; i < data.size()-1; i++){
+      
+      int j = findSmallestIndex(i);  // find the smallest index from i to end
+      
+      //Swap the item at that index and i
       temp=this.data.get(j);
-      this.data.set(j)=this.data.get(i);
-      this.data.set(i)=temp;
-        // swap the item at that index and i
+      this.data.set(j,this.data.get(i));
+      this.data.set(i,temp); 
+       
 
     }
   }
