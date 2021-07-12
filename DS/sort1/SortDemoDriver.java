@@ -26,5 +26,12 @@ public class SortDemoDriver {
 	  sd.sort();
 	  System.out.println(sd);
 	
+    Scanner myObj= new Scanner(System.in);
+    System.out.println("Enter a number to find on the array list");
+    int enterNumb= myObj.nextInt();
+    System.out.println(sd.linearSearch(enterNumb));
+  
     }
+
+    
 }

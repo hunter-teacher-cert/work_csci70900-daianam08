@@ -85,25 +85,27 @@ public class SortDemo{
     int temp; //Create a temp variable to store the value being swapped
 
     //Iterate through the data array to sort all values by swapping
-    for (i = 0; i < data.size()-1; i++){
-      
-      int j = findSmallestIndex(i);  // find the smallest index from i to end
+    for (i = 0; i < data.size(); i++){
+      int j = findSmallestIndex(i);  // find the smallest index from i to end(why did we add -1?)
       
       //Swap the item at that index and i
       temp=this.data.get(j);
       this.data.set(j,this.data.get(i));
       this.data.set(i,temp); 
-       
-
     }
-  }
+  }//sort end
+
   /* If you finish the lab early you can get started on this */
   public int linearSearch(int value){
     // loop through the ArrayList data
     // and if the value you're searchign for is in the ArrayList, return it.
     // return -1 if it isn't there.
-    return 0; // replace this return
-  }
+    for (int i=0; i<data.size(); i++){
+      if (value==data.get(i)){
+        return value;
+      } 
+    } return -1; 
+  }//linearSearch end
   
   /* If you finish the lab early you can get started on this */
   public int binarySearch(int value){
