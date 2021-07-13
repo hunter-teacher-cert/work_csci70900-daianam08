@@ -1,5 +1,5 @@
 //MANCALA 2.0
-//redid on my own
+//redid on my own (DONT GRADE THIS ONE)
 
 //NEXT STEPS
 //work on main if (player)

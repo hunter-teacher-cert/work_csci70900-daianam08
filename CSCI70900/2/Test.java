@@ -1,3 +1,5 @@
+//used to test the board and such
+
 import java.io.*;
 import java.util.*;
 
