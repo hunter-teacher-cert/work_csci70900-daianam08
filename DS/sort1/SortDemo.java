@@ -64,7 +64,7 @@ public class SortDemo{
   
   public int findSmallestIndex(int start){
     int smallIndex = start;
-    int i; // start a variable at the one after start
+    int i; // start a variable at the one after start(which is why we added +1)
     
     // loop from that variable to end and update smallIndex as needed      
     for (i = smallIndex + 1; i < this.data.size(); i++){
@@ -85,8 +85,8 @@ public class SortDemo{
     int temp; //Create a temp variable to store the value being swapped
 
     //Iterate through the data array to sort all values by swapping
-    for (i = 0; i < data.size(); i++){
-      int j = findSmallestIndex(i);  // find the smallest index from i to end(why did we add -1?)
+    for (i = 0; i < data.size()-1; i++){
+      int j = findSmallestIndex(i);  // find the smallest index from i to end(-1 because the end is already the largest)
       
       //Swap the item at that index and i
       temp=this.data.get(j);
