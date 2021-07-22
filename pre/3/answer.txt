@@ -1,0 +1,37 @@
+
+public static void zoop() {
+    baffle();
+    System.out.print("You wugga ");
+    baffle();
+}
+
+public static void main(String[] args) {
+    System.out.print("No, I ");
+    zoop();
+    System.out.print("I ");
+    baffle();
+}
+
+public static void baffle() {
+    System.out.print("wug");
+    ping();
+}
+
+public static void ping() {
+    System.out.println(".");
+}
+---------------------------------------------
+1. The program would print out the following:
+//the println made a new paragraph
+No, I wug.
+You wugga wug.
+I wug.
+
+2.  
+    [main: No, I ]
+    go to zoop=>go to baffle
+    [baffle: wug.]
+    go to ping
+    [ping: .]
+
+3. Turns into a loop!
