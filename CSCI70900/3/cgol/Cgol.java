@@ -24,7 +24,7 @@ import java.util.*;
    NOTA BENE:  All births and deaths occur simultaneously. Together, they constitute a single generation
 */
 
-public class CGOL{
+public class Cgol{
   //initialize empty board (all cells dead)
   public static char[][] createNewBoard(int rows, int cols) {
     char [][] newBoard=new char[rows][cols];

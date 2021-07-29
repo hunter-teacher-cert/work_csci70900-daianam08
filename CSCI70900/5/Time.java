@@ -1,4 +1,6 @@
 //the reading is confusing and does not indicate where certain things should go. getting a bunch of errors
+//Julian, Jovani, Daiana
+
 
 import java.io.*;
 import java.util.*;

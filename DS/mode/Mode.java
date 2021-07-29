@@ -30,7 +30,7 @@ public class Mode{
 
     public int findSmallestValue(){
       int smallest= inputData.get(0);
-      for(int i=1; i<inputData.size(); i++)
+      for(int i=0; i<inputData.size(); i++)
       {
        if (smallest > inputData.get(i)){
          smallest = inputData.get(i);
@@ -72,7 +72,7 @@ public class Mode{
       int largestFreqVal=inputData.get(0);
 
     //loop through the ArrayList
-      for(int i=1; i<inputData.size(); i++){
+      for(int i=0; i<inputData.size(); i++){
         //store frequency of the current element in a variable
         int currentFreq=frequency(inputData.get(i));
         if(largestFreq<currentFreq){
@@ -83,8 +83,33 @@ public class Mode{
     //check if the frequency of the current element is greater than the largestFrequency, update largestFrequency and largestFreqVal
 
 	    return largestFreqVal;
+    }//end calcmode
+
+    /*fastmode*/
+  public int fastMode(){
+    int[] tallies = new int[maxVal];
+    int i;
+    for (i=0;i<maxVal; i++){
+        tallies[i]=0;
     }
+
+    for (i=0;i<inputData.size();i++){
+        int v = inputData.get(i);
+        tallies[v] = tallies[v] + 1;
+    }
+
+    int maxIndex = 0;
+    int maxCount = tallies[0];
+    for (i=0;i<maxVal;i++){
+        if (tallies[i] > maxCount){
+      maxCount = tallies[i];
+      maxIndex = i;
+        }
+    }
+    return maxIndex;
+ }//end fastmode
+    
     public String toString(){
 	return ""+inputData;
     }
-}
+}//end class
