@@ -7,7 +7,7 @@ public class Driver{
     boolean solved;
 
      Knights k = new Knights(6);
-     k.solve(3,2,1);
+     k.solve(2,2,1);
 
   }//end main
 }//end driver

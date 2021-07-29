@@ -100,7 +100,9 @@ public class Knights{
 
   delay(300);
   System.out.println(clearScreen+this);
-
+  System.out.println(count);
+  System.out.println(row);
+  System.out.println(col);
   // Here we need to do try to do the 8 recursive calls
   // one for each knight's move.
   // It should be almost the same as the maze routine except:
