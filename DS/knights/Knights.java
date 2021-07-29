@@ -78,7 +78,7 @@ public class Knights{
   // in the maze we knew we were done when we found the exit. here, when do we know when we're done?
   //A: when we've visited all the spaces
   // HINT: you have an nxn board and are done when you've visited every board location
-   if (count>=(cols*rows)){
+   if (count>(cols*rows)){
     System.out.println(this);
     return true;
    }
@@ -96,13 +96,15 @@ public class Knights{
 
   // this sets the number on the board
   board[col][row]=count;
-  count++;
+  // count++;
 
   delay(300);
-  System.out.println(clearScreen+this);
-  System.out.println(count);
-  System.out.println(row);
-  System.out.println(col);
+  // System.out.println(clearScreen+this);
+  // System.out.println(count);
+  // System.out.println(col);
+  // System.out.println(row);
+  // System.out.println("---");
+
   // Here we need to do try to do the 8 recursive calls
   // one for each knight's move.
   // It should be almost the same as the maze routine except:
@@ -112,31 +114,34 @@ public class Knights{
 
   // RECURSIVE CALLS
   // try all the spaces we can go to
-  if (!solved){
-  solved = solve(col+1,row+2,count);
-  }
     if (!solved){
-      solved = solve(col+1,row-2,count);
+    solved = solve(col+1,row+2,count+1);
       }
     if (!solved){
-      solved = solve(col+2,row+1,count);
+      solved = solve(col+1,row-2,count+1);
       }
     if (!solved){
-      solved = solve(col+2,row-1,count);
+      solved = solve(col+2,row+1,count+1);
       }
     if (!solved){
-      solved = solve(col-1,row+2,count);
+      solved = solve(col+2,row-1,count+1);
       }
     if (!solved){
-      solved = solve(col-1,row-2,count);
+      solved = solve(col-1,row+2,count+1);
       }
     if (!solved){
-      solved = solve(col-2,row-1,count);
+      solved = solve(col-1,row-2,count+1);
       }
     if (!solved){
-      solved = solve(col-2,row+1,count);
+      solved = solve(col-2,row-1,count+1);
       }
-
+    if (!solved){
+      solved = solve(col-2,row+1,count+1);
+      }
+System.out.println(count);
+  System.out.println(col);
+  System.out.println(row);
+  System.out.println("---");
   // Here we unset where we were for the backtracking
   board[col][row]=0;
   return solved;
