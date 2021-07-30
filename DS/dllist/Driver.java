@@ -25,26 +25,26 @@ public class Driver{
       System.out.println(n3);
       System.out.println(n4);
       
-      System.out.println("---getNext---");
+      System.out.println("---get and set Next---");
       System.out.println(n.getNext());
       n.getNext().setNext(new Node("Tiff"));
       System.out.println(n2.getNext());
       System.out.println(n.getNext().getNext());
+
+      System.out.println("---get and set Prev---");
+      System.out.println(n2.getPrev());
+      n2.getPrev().setPrev(new Node("Ian"));
+      
+
 
       System.out.println("---Print New List---");
       System.out.println(n);
       System.out.println(n2);
       System.out.println(n3);
       System.out.println(n4);
-      
-	// 1.Create a new  list that looks like:
+
+	//1. Create a new  list that looks like:
 	//   L->"a"->"b"->"c"->"d"
-	// 2. Write the code to insert an "x"
-	//    between the b and the c
-	// 3. Write the code to delete the c
-
-
-	//1
 	Node L;
 	Node a = new Node("a");
 	Node b = new Node("b");
@@ -75,10 +75,14 @@ public class Driver{
 	}
 	System.out.println("null");
 
-	//2
+	//2. Write the code to insert an "x"
+	//    between the b and the c
 	Node x = new Node("X");
 	x.setNext(c);
+  x.setPrev(b);
 	b.setNext(x);
+  c.setPrev(x);
+
 	System.out.println("Part 2:");
 	currentNode = L;
 	while (currentNode != null){
@@ -89,7 +93,7 @@ public class Driver{
 	}
 	System.out.println("null");
 
-	//3
+	//3. Write the code to delete the c
 	b.setNext(d);
 	currentNode = L;
 	while (currentNode != null){
