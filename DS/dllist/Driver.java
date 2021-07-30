@@ -34,8 +34,9 @@ public class Driver{
       System.out.println("---get and set Prev---");
       System.out.println(n2.getPrev());
       n2.getPrev().setPrev(new Node("Ian"));
-      
 
+      System.out.println("---practice insert---");
+      n.insert(3,"John");
 
       System.out.println("---Print New List---");
       System.out.println(n);
@@ -95,6 +96,8 @@ public class Driver{
 
 	//3. Write the code to delete the c
 	b.setNext(d);
+  d.setPrev(b);
+
 	currentNode = L;
 	while (currentNode != null){
 	    System.out.print(currentNode+"->");

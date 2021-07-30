@@ -93,8 +93,19 @@ public class Dllist{
     // the node BEFORE you want to do the insertion.
 
     public void insert(int index, String value){
-
-    
+      Node currentNode= front;
+      Node prevNode=null;
+      Node x= new Node(value);
+      int i=1;
+      while (currentNode!=null && i!= index){
+        prevNode=currentNode;
+        currentNode= currentNode.getNext();
+        i++;
+      }
+      if (i==index){
+        currentNode.setNext(x);
+        currentNode.setPrev(prevNode);
+      }
     }//end insert
 
     // returns the index of the first item with
