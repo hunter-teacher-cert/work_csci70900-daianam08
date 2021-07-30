@@ -14,7 +14,7 @@
   * starter code
   * have w3schools open as a resource
 * Vocabulary:
-  * HTML, CSS, div, ID, Class, color, font size, color picker, nested
+  * HTML, CSS, div, ID, Class, selectors, color, font size, color picker, nested
 * Prior knowlede: By now, students should have learned how to code headings, paragraphs, images, links, and be familiar with CSS, and the use of divs.
 
 ### Standards(NYSED Computer Science and Digital Fluency Learning Standards)
@@ -40,7 +40,7 @@ Read over the starter code for today. See also a preview of the website. Take no
 ### Do now Review (5mins)
 
 ### Lesson(15 mins)
-Classes and IDs are super powerful in HTML. Later when we review website frameworks using Bootstrap, we will look at some amazing built-in classes we can use in our websites. As we see in the code, classes and ids allow us to format different sections of code. We can call these in the CSS sheet and give them their own modifications (color, size, etc). Only the sections labeled with the respective classes and ids will be affected.
+Classes and IDs are super powerful in HTML. Later when we review website frameworks using Bootstrap, we will look at some amazing built-in classes we can use in our websites. As we see in the code, classes and ids allow us to format different sections of code. They are otherwise known as selectors. We can call these in the CSS sheet and give them their own modifications (color, size, etc). Only the sections labeled with the respective classes and ids will be affected.
 
 Pose question: What sections of the code will be affected by a class or id? Which are not? [For example, body is not affected!]
 
@@ -56,9 +56,14 @@ IDs on the other hand, can only be used once throughout the code. That is why we
 
 Let's take a quick look at the CSS sheet. Notice how we call ids and classes differently! While elements have no symbols, classes use a period when called and ids use the pound/hashtag symbol.
 
+Let's only edit div and see how that would affect the code. Do we see now why we would want to use an ID or Class?
+
 ## Student Activity (10 mins)
 Let's edit our CSS sheet! Add the appropriate modifications for each section(text color and size).
 Stretch- Finished early? Try looking up a color picker and instead of adding color as the name of the color, try adding them as HEX or RBG (use w3schools as a reference).
 
 ## Review activity (5mins)
+
+### If we have time, or leave as Do Now for next day
+- Check for understanding: Comment in your CSS sheet what an ID and Class are, and what symbols you use for them when calling them in the CSS sheet. How many times can you use an ID vs Class in your code?
 ---
