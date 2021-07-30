@@ -93,21 +93,23 @@ public class Dllist{
     // the node BEFORE you want to do the insertion.
 
     public void insert(int index, String value){
-      
-      
-    }
+
+    
+    }//end insert
 
     // returns the index of the first item with
     // data value key. Returns -1 if not found
 
-  //   public int search(String key){
-	// return -1;	
-  //   }
+  public int search(String key){
+	 return -1;	
+     }//end search
+
 
     // removes the node at index.
     // does nothing if index out of bounds
 
-    // public void remove(int index){
-	//}
+    public void remove(int index){
+	
+  }//end remove
 
       }//end class

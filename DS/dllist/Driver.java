@@ -9,15 +9,33 @@ public class Driver{
       
       Node n2 = new Node("Brian");
       n.setNext(n2);
+      n2.setPrev(n);
 
+      Node n3 = new Node("Daiana");
+      n3.setPrev(n2);
+      n2.setNext(n3);
+
+      Node n4 = new Node("Steph");
+      n4.setPrev(n3);
+      n3.setNext(n4);
+
+      System.out.println("---Print List---");
       System.out.println(n);
-
       System.out.println(n2);
-
+      System.out.println(n3);
+      System.out.println(n4);
+      
+      System.out.println("---getNext---");
       System.out.println(n.getNext());
-      n.getNext().setNext(new Node("Steph"));
+      n.getNext().setNext(new Node("Tiff"));
       System.out.println(n2.getNext());
       System.out.println(n.getNext().getNext());
+
+      System.out.println("---Print New List---");
+      System.out.println(n);
+      System.out.println(n2);
+      System.out.println(n3);
+      System.out.println(n4);
       
 	// 1.Create a new  list that looks like:
 	//   L->"a"->"b"->"c"->"d"
@@ -37,8 +55,13 @@ public class Driver{
 	L=a;
 	a.setNext(b);
 	b.setNext(c);
+  b.setPrev(a);
 	c.setNext(d);
+  c.setPrev(b);
 	d.setNext(e);
+  d.setPrev(c);
+  e.setPrev(d);
+	System.out.println();
 	System.out.println("Part 1:");
 	// remember not to lose the head / start
 	// of the list - make a copy
