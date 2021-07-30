@@ -313,4 +313,9 @@ public ArrayList<Integer> msort(ArrayList<Integer> l){
 	    data = msort(data);
     }
 
+ public void builtinSort(){
+	Collections.sort(data);
+	
+    }
+
 }//end class

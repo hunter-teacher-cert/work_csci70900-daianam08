@@ -3,23 +3,22 @@ import java.util.*;
 
 public class Driver{
     public static void main(String[] args) {
-	Node n;
-	n = new Node();
-	n.setData("Eduardo");
-	
+	    Node n;
+      n = new Node();
+      n.setData("Eduardo");
+      
+      Node n2 = new Node("Brian");
+      n.setNext(n2);
 
-	Node n2 = new Node("Brian");
-	n.setNext(n2);
+      System.out.println(n);
 
-	System.out.println(n);
+      System.out.println(n2);
 
-	System.out.println(n2);
-
-	System.out.println(n.getNext());
-	n.getNext().setNext(new Node("Steph"));
-	System.out.println(n2.getNext());
-	System.out.println(n.getNext().getNext());
-	
+      System.out.println(n.getNext());
+      n.getNext().setNext(new Node("Steph"));
+      System.out.println(n2.getNext());
+      System.out.println(n.getNext().getNext());
+      
 	// 1.Create a new  list that looks like:
 	//   L->"a"->"b"->"c"->"d"
 	// 2. Write the code to insert an "x"
@@ -87,23 +86,23 @@ public class Driver{
 	*/
 
 	System.out.println("\n");
-	System.out.println("Llist");
+	System.out.println("Dllist");
 	System.out.println("-----------");
 	
-	Llist ll = new Llist();
-	System.out.println(ll);
+	Dllist dl = new Dllist();
+	System.out.println(dl);
 	
-	ll.addFront("a");
-	System.out.println(ll);
+	dl.addFront("a");
+	System.out.println(dl);
 
 		
-	ll.addFront("b");
-	System.out.println(ll);
+	dl.addFront("b");
+	System.out.println(dl);
 
-	ll.addFront("c");
-	System.out.println(ll);
+	dl.addFront("c");
+	System.out.println(dl);
 
-  System.out.println(ll.get(2));
+  System.out.println(dl.get(2));
   
     }//end main
 }//end driver class

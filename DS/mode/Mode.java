@@ -1,3 +1,4 @@
+//worked with Leiteduardo & lfridman2016
 import java.io.*;
 import java.util.*;
 
@@ -6,12 +7,14 @@ import java.util.*;
 public class Mode{
     private ArrayList<Integer> inputData;
     private Random r;
+    private int maxVal=50;
+    
     public Mode(){
 	r = new Random();
 	inputData = new ArrayList<Integer>();
 	
 	for (int i=0; i < 20; i++){
-	    inputData.add(r.nextInt(20));
+	    inputData.add(r.nextInt(maxVal));
 	}
     }
     public Mode(int size){
@@ -19,7 +22,7 @@ public class Mode{
 	inputData = new ArrayList<Integer>();
 	
 	for (int i=0; i < size; i++){
-	    inputData.add(r.nextInt(50));
+	    inputData.add(r.nextInt(maxVal));
 	}
     }
 
