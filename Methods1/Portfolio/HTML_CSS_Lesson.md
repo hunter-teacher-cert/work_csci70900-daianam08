@@ -22,10 +22,10 @@
 ---
 
 ### Assessment:
-Students will hand in completed HTML and CSS worksheet. Will be graded on completion. Participation points will also be given throughout the period.
+Students will hand in completed HTML and CSS code. Will be graded based on completion. Participation points will also be given throughout the period.
 
 ### Differentiation:
-Students will have their notes for reference, slide how will have questions and snipets of code as the lesson progresses. Pauses and review of concepts at each step. Code will have comments on places where they should and should not edit. Stretch activity for students who are done early. W3schools as a reference.
+Students will have their notes for reference, slideshow will have questions and snipets of code as the lesson progresses. Pauses and review of concepts at each step. Code will have comments on places where they should and should not edit. Stretch activity for students who are done early. W3schools as a reference.
 
 ---
 

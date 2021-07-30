@@ -78,7 +78,7 @@ public class Knights{
   // in the maze we knew we were done when we found the exit. here, when do we know when we're done?
   //A: when we've visited all the spaces
   // HINT: you have an nxn board and are done when you've visited every board location
-   if (count>(cols*rows)){
+   if (count > (this.cols * this.rows)){
     System.out.println(this);
     return true;
    }
@@ -88,8 +88,8 @@ public class Knights{
   // change CHANGETHIS to the appropriate boolean
   // HINT: we are tracking our moves in the board
   // and also built that border of -1 values.
-   if (board[col][row] == -1 //trying to go outside of the board therefore return false
-  || board[col][row]!=0) {
+   if (board[col][row] == -1 || board[col][row]!=0) //trying to go outside of the board therefore return false
+   {
     //if you've visited before; not viable space therefore return false
     return false;
    }
@@ -98,8 +98,8 @@ public class Knights{
   board[col][row]=count;
   // count++;
 
-  delay(300);
-  // System.out.println(clearScreen+this);
+  // delay(300);
+  System.out.println(clearScreen+this);
   // System.out.println(count);
   // System.out.println(col);
   // System.out.println(row);
@@ -114,9 +114,8 @@ public class Knights{
 
   // RECURSIVE CALLS
   // try all the spaces we can go to
-    if (!solved){
-    solved = solve(col+1,row+2,count+1);
-      }
+
+    solved = solve(col+1,row+2,count+1); 
     if (!solved){
       solved = solve(col+1,row-2,count+1);
       }
@@ -138,7 +137,7 @@ public class Knights{
     if (!solved){
       solved = solve(col-2,row+1,count+1);
       }
-System.out.println(count);
+  System.out.println(count);
   System.out.println(col);
   System.out.println(row);
   System.out.println("---");
