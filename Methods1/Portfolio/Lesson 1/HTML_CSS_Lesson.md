@@ -14,11 +14,14 @@
   * starter code
   * have w3schools open as a resource
 * Vocabulary:
-  * HTML, CSS, div, ID, Class, color, font size, color picker
+  * HTML, CSS, div, ID, Class, color, font size, color picker, nested
 * Prior knowlede: By now, students should have learned how to code headings, paragraphs, images, links, and be familiar with CSS, and the use of divs.
 
-### Standards
-* 
+### Standards(NYSED Computer Science and Digital Fluency Learning Standards)
+Computational Thinking
+* Abstraction and Decomposition (9-12.CT.5)- understanding that the same abstract concept can be performed in different ways in a program
+* Algorithms and Programming (9-12.CT.10)- importance of documenting the development
+process
 ---
 
 ### Assessment:
@@ -47,7 +50,7 @@ Classes can actually be reused throughout the code. If more than one section req
 
 Live code(3 mins): Add class="red_text" in the div on line 37.
 
-Review(1 min).
+Review(1 min)
 
 IDs on the other hand, can only be used once throughout the code. That is why we used the id for green_text in the heading and large in number 3. We don't want to use those modifications anywhere else.
 
@@ -55,7 +58,7 @@ Let's take a quick look at the CSS sheet. Notice how we call ids and classes dif
 
 ## Student Activity (10 mins)
 Let's edit our CSS sheet! Add the appropriate modifications for each section(text color and size).
-Stretch- Finished early? Try looking up a color picker and instead of adding color as words, try adding them as a HEX or RBG code (use w3schools as a reference).
+Stretch- Finished early? Try looking up a color picker and instead of adding color as the name of the color, try adding them as HEX or RBG (use w3schools as a reference).
 
 ## Review activity (5mins)
 ---
