@@ -8,9 +8,9 @@ public class Node {
     private Node prev;
 
     public Node() {
-	data = "";
-	next = null;
-  prev = null;
+      data = "";
+      next = null;
+      prev = null;
     }//default constructor
 
     public Node(String value) {

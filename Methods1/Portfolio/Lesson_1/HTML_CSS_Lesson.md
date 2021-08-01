@@ -10,7 +10,7 @@
 * Materials:
   * laptop
   * slideshow (HTMLCSSSampleLesson.pdf)
-  * notes
+  * journal
   * starter code
   * have w3schools open as a resource
 * Vocabulary:

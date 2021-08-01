@@ -13,8 +13,10 @@ public class Dllist{
     public void addFront(String data){
 	// make the new node
 	    Node newNode = new Node(data);
+      Node currNode= front;
 	// point it to what front points to
-	    newNode.setNext(front);
+	    newNode.setNext(currNode);
+	    newNode.setPrev(null);
 	// point front to the new node
 	    front = newNode;
     }//end addfront
@@ -97,6 +99,11 @@ public class Dllist{
       Node prevNode=null;
       Node x= new Node(value);
       int i=1;
+      int size=
+      if (currentNode==null){
+        currentNode=x;
+        return;
+      }
       while (currentNode!=null && i!= index){
         prevNode=currentNode;
         currentNode= currentNode.getNext();

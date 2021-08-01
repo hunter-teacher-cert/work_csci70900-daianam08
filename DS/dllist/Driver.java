@@ -36,7 +36,7 @@ public class Driver{
       n2.getPrev().setPrev(new Node("Ian"));
 
       System.out.println("---practice insert---");
-      n.insert(3,"John");
+      insert(3,"John");
 
       System.out.println("---Print New List---");
       System.out.println(n);
