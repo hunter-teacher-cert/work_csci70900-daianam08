@@ -16,7 +16,7 @@ public class Dllist{
 	// make the new node
   	  Node newNode = new Node(data);
       if (front==null){
-        front= newNode();
+        front= newNode;
         return;
       }
       Node currNode= front;
@@ -35,9 +35,8 @@ public class Dllist{
         return;
       }
       Node currNode= front;
-      currNode.getNext(front);
       while (currNode!=null){
-      currNode.getNext(currNode);
+      currNode=currNode.getNext();
       }
       back.setNext(newNode);
     } //end add back
@@ -118,20 +117,20 @@ public class Dllist{
     public void insert(int index, String value){
       Node currentNode= front;
       Node prevNode=null;
-      Node x= new Node(value);
+      Node addNode= new Node(value);
       int i=1;
-      int size=
+      // int size=0;
       if (currentNode==null){
-        currentNode=x;
+        currentNode=addNode;
         return;
       }
       while (currentNode!=null && i!= index){
         prevNode=currentNode;
-        currentNode= currentNode.getNext();
+        currentNode=currentNode.getNext();
         i++;
       }
       if (i==index){
-        currentNode.setNext(x);
+        currentNode.setNext(addNode);
         currentNode.setPrev(prevNode);
       }
     }//end insert
@@ -139,16 +138,16 @@ public class Dllist{
     // returns the index of the first item with
     // data value key. Returns -1 if not found
 
-  public int search(String key){
-	 return -1;	
-     }//end search
+  // public int search(String key){
+	//  return -1;	
+  //    }//end search
 
 
     // removes the node at index.
     // does nothing if index out of bounds
 
-    public void remove(int index){
+  //   public void remove(int index){
 	
-  }//end remove
+  // }//end remove
 
       }//end class

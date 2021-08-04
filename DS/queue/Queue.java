@@ -7,10 +7,11 @@ import java.util.*;
 public class Queue{
   private Node front;
   private Node end;
+  int count=0;
 
   public Queue(){
     front= null;
-    end=null;
+    end= null;
   }//end queue constructor
 
   // public void addFront(String value){
@@ -29,11 +30,16 @@ public class Queue{
     Node newNode = new Node(value);
     if (front==null){
       front= newNode;
+      count++;
+      return;
     } else if(end==null){
       end= newNode;
+      count++;
+      return;
     } else if (end!=null){
       end.setNext(newNode);
       end=newNode;
+      count++;
     // Node currNode=new Node();
     // currNode.setData(end.getData());
     // end= newNode;
@@ -42,12 +48,24 @@ public class Queue{
   }//end enqueue(val)
 
   public String deQueue(){
-    if(end==null){
-      return end.getData();//empty queue
+    Node currNode=front;
+    if( front==null && end==null){
+      return null;//empty queue
     }
-    Node currNode= front.getNext();
-    front=currNode;
+    count--;
+    Node tempNode=new Node();
+    front=tempNode;
+    currNode=front;
+    // temp=x, x=y, y=temp
+    // front=currNode.getNext();
     return front.getData();
+    // Node currNode=new Node();
+    // Node nextNode= new Node();
+    // nextNode=front.getNext();
+    // currNode.setData(nextNode.getData());
+    // front=currNode;
+    // count--;
+    // return front.getData();
   }//end dequeue
 
   public String front(){
@@ -59,16 +77,16 @@ public class Queue{
   }//end isempty
 
   public int size(){
-    Node currNode= front;
-    int size=0;
-    // if (end==null){
-    //   return -1;
+    // Node currNode= front;
+    // int size=0;
+    // // if (end==null){
+    // //   return -1;
+    // // }
+    // while (currNode!=null){
+    //   currNode=currNode.getNext();
+    //   size=size+1;
     // }
-    while (currNode!=null){
-      currNode=currNode.getNext();
-      size=size+1;
-    }
-    return size;
+    return count;
   }//end size
 
 }//end class
