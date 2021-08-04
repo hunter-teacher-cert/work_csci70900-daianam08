@@ -14,10 +14,9 @@ public class Node {
     }//default constructor
 
     public Node(String value) {
-
-	data = value;
-	next = null;
-  prev = null;
+      data = value;
+      next = null;
+      prev = null;
     }//constructor(value)
 
     public Node(String value, Node next, Node prev) {

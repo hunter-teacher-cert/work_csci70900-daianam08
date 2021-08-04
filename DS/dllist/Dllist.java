@@ -4,15 +4,21 @@ import java.util.*;
 
 public class Dllist{
     private Node front; // the front of the list
+    private Node back;
     public  Dllist(){
 	    front = null;
+      back = null;
     }
 
     // Add a new node containing data
     // at the front of the list
     public void addFront(String data){
 	// make the new node
-	    Node newNode = new Node(data);
+  	  Node newNode = new Node(data);
+      if (front==null){
+        front= newNode();
+        return;
+      }
       Node currNode= front;
 	// point it to what front points to
 	    newNode.setNext(currNode);
@@ -20,6 +26,21 @@ public class Dllist{
 	// point front to the new node
 	    front = newNode;
     }//end addfront
+
+    public void addBack(String data){
+      Node newNode= new Node(data);
+      if(front.getNext()==null){
+        front.setNext(newNode);
+        newNode.setPrev(front);
+        return;
+      }
+      Node currNode= front;
+      currNode.getNext(front);
+      while (currNode!=null){
+      currNode.getNext(currNode);
+      }
+      back.setNext(newNode);
+    } //end add back
 
     public String toString(){
       Node currentNode;
@@ -67,7 +88,7 @@ public class Dllist{
          i++;
         currentNode=currentNode.getNext();
       } 
-       return null;
+       return null;//index is empty?
      }//end get
       
 

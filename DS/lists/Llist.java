@@ -96,8 +96,18 @@ public class Llist{
     // the node BEFORE you want to do the insertion.
 
     public void insert(int index, String value){
-
-      
+      int count=0;
+      Node insertN= new Node(value);
+      Node currNode= front;
+      if (index==0){
+        insertN=front;
+        return;
+      }
+      while (currNode!=null && count!=index){
+        count=count+1;
+        currNode=currNode.getNext();
+      }
+      currNode.setData(insertN.getData());
     }
 
     // returns the index of the first item with
