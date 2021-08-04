@@ -13,7 +13,7 @@ public class Driver{
 
     office.insert(1, "Jim H.");
     System.out.println(office.toString());
-
+    System.out.println(office.length());
 
 
 

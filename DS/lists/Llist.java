@@ -100,27 +100,62 @@ public class Llist{
       Node insertN= new Node(value);
       Node currNode= front;
       if (index==0){
+        Node nextN=front.getNext();
         insertN=front;
+        front.setNext(nextN);
         return;
       }
-      while (currNode!=null && count!=index){
+      if (currNode==null){
+        currNode=insertN;
+        return;
+      }
+      while (currNode!=null && count!=index-1){
         count=count+1;
         currNode=currNode.getNext();
       }
-      currNode.setData(insertN.getData());
+      if (count==index-1){
+      Node insertNext=currNode.getNext();
+      Node thisNode= new Node(currNode.getData());
+      thisNode.setNext(currNode.getNext());
+      currNode.setNext(insertN);
+      insertN.setNext(thisNode.getNext());
+      thisNode.setNext(insertNext);
+      }
     }
 
     // returns the index of the first item with
     // data value key. Returns -1 if not found
 
-  //   public int search(String key){
-	// return -1;	
-  //   }
+    public int search(String key){
+      Node currNode= front;
+      Node searchN= new Node(key);
+      int index=0;
+      while (currNode!=null || currNode!=searchN){
+        index++;
+        currNode=currNode.getNext();
+      }
+      if (currNode==searchN){
+        return index;
+      }
+	return -1;	
+    }
 
     // removes the node at index.
     // does nothing if index out of bounds
 
-    // public void remove(int index){
-	//}
+    public void remove(int index){
+      Node currNode=front;
+      int counter=0;
+      while(currNode!=null && counter!=index){
+        counter++;
+        currNode= currNode.getNext();
+      }
+      if (counter==index){
+        Node nextN= currNode.getNext();
+        Node nextNextN= nextN.getNext();
+        currNode=nextN;
+        currNode.setNext(nextNextN);
+      }
+	}//end remove
 
       }//end class

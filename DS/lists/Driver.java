@@ -96,7 +96,6 @@ public class Driver{
 	ll.addFront("a");
 	System.out.println(ll);
 
-		
 	ll.addFront("b");
 	System.out.println(ll);
 
@@ -105,5 +104,14 @@ public class Driver{
 
   System.out.println(ll.get(2));
   
+  ll.set(2, "x");
+  System.out.println(ll.get(2));
+	System.out.println(ll);
+
+	System.out.println("--test insert--");
+  ll.insert(2,"f");
+  System.out.println(ll.get(2));
+	System.out.println(ll);
+
     }//end main
 }//end driver class

@@ -44,6 +44,7 @@ public class Dllist{
     public String toString(){
       Node currentNode;
       currentNode = front;
+      Node backNode =back;
       String result = "";
       while (currentNode != null){
         result = result + currentNode + "->";
@@ -114,25 +115,48 @@ public class Dllist{
     // You will need a variable that refers to
     // the node BEFORE you want to do the insertion.
 
+//ADD PREV
     public void insert(int index, String value){
-      Node currentNode= front;
-      Node prevNode=null;
-      Node addNode= new Node(value);
-      int i=1;
-      // int size=0;
-      if (currentNode==null){
-        currentNode=addNode;
+      int count=0;
+      Node insertN= new Node(value);
+      Node currNode= front;
+      Node inPrev= new Node(null);
+      insertN.setPrev(inPrev);
+      inPrev.setNext(insertN);
+      if (index==0){
+        Node nextN=front.getNext();
+        inPrev= front.getPrev();
+        insertN=front;
+        front.setNext(nextN);
+        front.setPrev(inPrev);
         return;
       }
-      while (currentNode!=null && i!= index){
-        prevNode=currentNode;
-        currentNode=currentNode.getNext();
-        i++;
+      if (currNode==null){
+        currNode=insertN;
+        insertN.setNext(null);
+        return;
       }
-      if (i==index){
-        currentNode.setNext(addNode);
-        currentNode.setPrev(prevNode);
+      while (currNode!=null && count!=index-1){
+        count=count+1;
+        currNode=currNode.getNext();
       }
+      // if (count==index-1){
+        // inPrev=currNode.getPrev();
+        // currNode.setPrev(insertN);
+        // insertN.setNext(currNode);
+
+      Node insertNext=currNode.getNext();
+      inPrev= currNode.getPrev();
+      Node thisNode= new Node(currNode.getData());
+      thisNode.setNext(currNode.getNext());
+      thisNode.setPrev(currNode.getPrev());
+      currNode.setNext(insertN);
+      currNode.setPrev(thisNode);
+      insertN.setNext(thisNode.getNext());
+      insertN.setPrev(thisNode.getPrev());
+      thisNode.setNext(insertNext);
+      // }
+      // thisNode.setPrev(inPrev);
     }//end insert
 
     // returns the index of the first item with
