@@ -42,12 +42,6 @@ public class Queue{
       Node container= end;
       container.setNext(newNode);
       end= newNode;
-      // end.setNext(newNode);
-      // end=newNode;
-    // Node currNode=new Node();
-    // currNode.setData(end.getData());
-    // end= newNode;
-    // currNode.setNext(end);
     }
   }//end enqueue(val)
 
@@ -58,15 +52,11 @@ public class Queue{
     }
     count--;
     Node tempNode=new Node(front.getData());
-    // front.setData(front.getNext().getData());
-    // return tempNode.getData();
-    Node nextN= new Node();
-    nextN= front.getNext();
-    front=currNode;
-    front.setNext(nextN);
+    Node nextNode= front.getNext();
+    Node nextNext= nextNode.getNext();
+    front=nextNode;
+    front.setNext(nextNext);
     return tempNode.getData();
-    
-  
   }//end dequeue
 
 public String toStrings(){

@@ -91,6 +91,21 @@ public class Dllist{
        return null;//index is empty?
      }//end get
       
+    public String getPrevi(int index){
+      Node currentNode=front;
+      int i=0;
+      while(currentNode!= null){
+        if(i==index){
+          Node prevN=currentNode.getPrev();
+          return prevN.getData();
+        } 
+         i++;
+        currentNode=currentNode.getNext();
+      } 
+       return null;//index is empty?
+     }//end get
+      
+
 
     // sets the item at location index (starting
     // with 0) to value.
@@ -98,13 +113,19 @@ public class Dllist{
     public void set(int index, String value){
       int count = 0;
       Node currentNode = front;
+      Node newNode= new Node(value);
+      if (currentNode==null){
+        currentNode=newNode;
+        currentNode.setNext(back);
+        return;
+      }
       while (currentNode != null && count != index){
         currentNode = currentNode.getNext();
         count = count + 1;
       }
       // once there, set the new data
       if (currentNode != null){
-        currentNode.setData(value);
+        currentNode.setData(newNode.getData());
       }
     }//end set
 
@@ -118,53 +139,43 @@ public class Dllist{
 //ADD PREV
     public void insert(int index, String value){
       int count=0;
-      Node insertN= new Node(value);
+      Node newNode= new Node(value);
       Node currNode= front;
       Node inPrev= new Node(null);
-      insertN.setPrev(inPrev);
-      inPrev.setNext(insertN);
+      newNode.setPrev(inPrev);
+      inPrev.setNext(newNode);
       if (index==0){
         Node nextN=front.getNext();
         inPrev= front.getPrev();
-        insertN=front;
+        newNode=front;
         front.setNext(nextN);
         front.setPrev(inPrev);
         return;
       }
       if (currNode==null){
-        currNode=insertN;
-        insertN.setNext(null);
+        currNode=newNode;
+        newNode.setNext(null);
+        // newNode.setPrev(currN)
         return;
       }
       while (currNode!=null && count!=index-1){
         count=count+1;
         currNode=currNode.getNext();
       }
-      // if (count==index-1){
-        // inPrev=currNode.getPrev();
-        // currNode.setPrev(insertN);
-        // insertN.setNext(currNode);
-
-      Node insertNext=currNode.getNext();
-      inPrev= currNode.getPrev();
-      Node thisNode= new Node(currNode.getData());
-      thisNode.setNext(currNode.getNext());
-      thisNode.setPrev(currNode.getPrev());
-      currNode.setNext(insertN);
-      currNode.setPrev(thisNode);
-      insertN.setNext(thisNode.getNext());
-      insertN.setPrev(thisNode.getPrev());
-      thisNode.setNext(insertNext);
-      // }
-      // thisNode.setPrev(inPrev);
+      if (count==index){
+        newNode.setPrev(currNode.getPrev());
+        newNode.setNext(currNode);
+        currNode.getPrev().setNext(newNode);
+        currNode.setPrev(newNode);
+      }
     }//end insert
 
     // returns the index of the first item with
     // data value key. Returns -1 if not found
 
-  // public int search(String key){
-	//  return -1;	
-  //    }//end search
+  public int search(String key){
+	 return -1;	
+     }//end search
 
 
     // removes the node at index.
