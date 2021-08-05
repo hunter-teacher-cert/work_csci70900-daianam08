@@ -22,13 +22,15 @@ public class Qdriver{
   office.enQueue("Angela M.");
   office.enQueue("Dwight S.");
   office.enQueue("Oscar N.");
+  System.out.println(office.toStrings());
   System.out.println(office.size());
   System.out.println(office.isEmpty());
-
   System.out.println(office.front());
+  System.out.println("---Test dequeue---");
   System.out.println(office.deQueue());
-  System.out.println(office.size());
+  System.out.println(office.toStrings());
   System.out.println(office.front());
+  System.out.println(office.size());
 
   }//end main
 

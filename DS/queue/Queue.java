@@ -14,17 +14,17 @@ public class Queue{
     end= null;
   }//end queue constructor
 
-  // public void addFront(String value){
-  //   Node newNode = new Node(value);
-  //   if (front==null){
-  //     front=newNode;
-  //   } else {
-  // Node currNode= new Node();
-  // currNode.setData(front.getData());
-	// newNode.setNext(currNode);
-	// front = newNode;
-  // }
-    //}//end addfront
+  public void addFront(String value){
+    Node newNode = new Node(value);
+    if (front==null){
+      front=newNode;
+    } else {
+  Node currNode= new Node();
+  currNode.setData(front.getData());
+	newNode.setNext(currNode);
+	front = newNode;
+  }
+    }//end addfront
 
   public void enQueue(String value){
     Node newNode = new Node(value);
@@ -34,12 +34,16 @@ public class Queue{
       return;
     } else if(end==null){
       end= newNode;
+      front.setNext(end);
       count++;
       return;
     } else if (end!=null){
-      end.setNext(newNode);
-      end=newNode;
       count++;
+      Node container= end;
+      container.setNext(newNode);
+      end= newNode;
+      // end.setNext(newNode);
+      // end=newNode;
     // Node currNode=new Node();
     // currNode.setData(end.getData());
     // end= newNode;
@@ -49,24 +53,37 @@ public class Queue{
 
   public String deQueue(){
     Node currNode=front;
-    if( front==null && end==null){
+    if(front==null && end==null){
       return null;//empty queue
     }
     count--;
-    Node tempNode=new Node();
-    front=tempNode;
-    currNode=front;
-    // temp=x, x=y, y=temp
-    // front=currNode.getNext();
-    return front.getData();
-    // Node currNode=new Node();
-    // Node nextNode= new Node();
-    // nextNode=front.getNext();
-    // currNode.setData(nextNode.getData());
-    // front=currNode;
-    // count--;
-    // return front.getData();
+    Node tempNode=new Node(front.getData());
+    // front.setData(front.getNext().getData());
+    // return tempNode.getData();
+    Node nextN= new Node();
+    nextN= front.getNext();
+    front=currNode;
+    front.setNext(nextN);
+    return tempNode.getData();
+    
+  
   }//end dequeue
+
+public String toStrings(){
+	Node currentNode;
+	currentNode = front;
+	String result = "";
+	while (currentNode != null){
+	    result = result + currentNode + "->";
+	    // this is like i=i+1 is for arrays
+	    // but for linked lists 
+	    currentNode = currentNode.getNext();
+	}
+	result = result + "null";
+	return result;
+
+    }
+
 
   public String front(){
     return front.getData();
