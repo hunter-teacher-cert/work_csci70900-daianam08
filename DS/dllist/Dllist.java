@@ -94,15 +94,13 @@ public class Dllist{
     public String getPrevi(int index){
       Node currentNode=front;
       int i=0;
-      while(currentNode!= null){
-        if(i==index){
-          Node prevN=currentNode.getPrev();
-          return prevN.getData();
-        } 
+      while(currentNode!= null && i!=index){
          i++;
         currentNode=currentNode.getNext();
       } 
-       return null;//index is empty?
+       Node prevN=currentNode.getPrev();
+          return prevN.getData();
+      //  return null;//index is empty?
      }//end get
       
 
@@ -136,14 +134,12 @@ public class Dllist{
     // You will need a variable that refers to
     // the node BEFORE you want to do the insertion.
 
-//ADD PREV
+
     public void insert(int index, String value){
       int count=0;
       Node newNode= new Node(value);
       Node currNode= front;
-      Node inPrev= new Node(null);
-      newNode.setPrev(inPrev);
-      inPrev.setNext(newNode);
+      Node inPrev= new Node();
       if (index==0){
         Node nextN=front.getNext();
         inPrev= front.getPrev();
@@ -152,16 +148,19 @@ public class Dllist{
         front.setPrev(inPrev);
         return;
       }
-      if (currNode==null){
-        currNode=newNode;
-        newNode.setNext(null);
-        // newNode.setPrev(currN)
-        return;
-      }
-      while (currNode!=null && count!=index-1){
+      while (currNode!=null && count!=index){
         count=count+1;
         currNode=currNode.getNext();
       }
+      // if (currNode==null){
+      //   Node currData= new Node(currNode.getData());
+      //   currData.setNext(currNode.getNext());
+      //   currData.setPrev(currNode.getPrev());
+      //   currNode=newNode;
+      //   currNode.setNext(currData.getNext());
+      //   currNode.setPrev(currData.getPrev());
+      //   return;
+      // }
       if (count==index){
         newNode.setPrev(currNode.getPrev());
         newNode.setNext(currNode);
@@ -174,15 +173,44 @@ public class Dllist{
     // data value key. Returns -1 if not found
 
   public int search(String key){
-	 return -1;	
+	 Node currNode=front;
+   Node search= new Node(key);
+   int count=0;
+   while(currNode!= null){
+     if(currNode.getData()==search.getData()){
+return count;
+    }
+     currNode=currNode.getNext();
+     count++;
+}
+return -1;
      }//end search
 
 
     // removes the node at index.
     // does nothing if index out of bounds
 
-  //   public void remove(int index){
-	
-  // }//end remove
+  public void remove(int index){
+      Node currNode=front;
+      int counter=0;
+      while(currNode!=null){
+        if (counter==index){
+        Node nextN= currNode.getNext();
+        Node prevN= currNode.getPrev();
+        Node nextNextN= nextN.getNext();
+        currNode=nextN;
+        currNode.setNext(nextNextN);
+        currNode.setPrev(prevN);
+        prevN.setNext(currNode);
+        if (nextNextN!=null){
+        nextNextN.setPrev(currNode);
+        }
+        return;
+      }
+        counter++;
+        currNode= currNode.getNext();
+      }
+    return;
+	}//end remove
 
       }//end class

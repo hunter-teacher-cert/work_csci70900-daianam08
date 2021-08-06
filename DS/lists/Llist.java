@@ -146,16 +146,18 @@ public class Llist{
     public void remove(int index){
       Node currNode=front;
       int counter=0;
-      while(currNode!=null && counter!=index){
-        counter++;
-        currNode= currNode.getNext();
-      }
-      if (counter==index){
+      while(currNode!=null){
+       if (counter==index){
         Node nextN= currNode.getNext();
         Node nextNextN= nextN.getNext();
         currNode=nextN;
         currNode.setNext(nextNextN);
+        return;
       }
+      counter++;
+        currNode= currNode.getNext();
+      }
+      return;
 	}//end remove
 
       }//end class

@@ -17,13 +17,21 @@ public class Driver{
     System.out.println(office.toString());
     System.out.println(office.length());
 
-    System.out.println("--test gets--");
+    System.out.println("--test gets/sets--");
     System.out.println(office.get(2));
     office.set(2, "Kevin M.");
     System.out.println(office.toString());
-    System.out.println(office.getPrevi(1));
+    //below gets previous item of index
+    System.out.println(office.getPrevi(2));
 
+    System.out.println("--test search--");
+    System.out.println(office.search("Jim H."));
+    System.out.println(office.search("Kelly K."));
 
+    System.out.println("--test remove--");
+    office.remove(1);
+    System.out.println(office.toString());
+    office.remove(5);
 
 
     }//end main
